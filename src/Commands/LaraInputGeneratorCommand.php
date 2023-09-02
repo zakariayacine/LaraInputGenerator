@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Zakariayacine\LaraInputGenerator\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaraInputGeneratorCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'larainputgenerator';
 
     public $description = 'My command';
 
