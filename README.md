@@ -17,7 +17,7 @@ composer require zakariayacine/larainputgenerator
 To publish the package's assets, including Blade components, run the following command:
 
 ```bash
-php artisan vendor:publish --provider="Zakariayacine\LaraInputGenerator\LaraInputGeneratorServiceProvider"
+php artisan vendor:publish --tag=larainputgenerator-config
 ```
 
 This command will make the package's components available for use in your views.
