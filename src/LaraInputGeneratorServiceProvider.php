@@ -19,10 +19,10 @@ class LaraInputGeneratorServiceProvider extends PackageServiceProvider
 
     public function boot()
     {
-      $this->publishes([
-        __DIR__.'/../src/View/Components' => base_path('app/View/Components'),
-        __DIR__.'/../resources/views/components' => resource_path('views/components'),
-        __DIR__.'/../config/' => config_path('larainputgenerator'),
-      ], 'larainputgenerator-config');
+        $this->publishes([
+            __DIR__.'/../src/View/Components' => base_path('app/View/Components'),
+            __DIR__.'/../resources/views/components' => resource_path('views/components'),
+            __DIR__.'/../config/' => config_path('larainputgenerator'),
+        ], 'larainputgenerator-config');
     }
 }
