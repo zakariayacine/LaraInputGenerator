@@ -8,27 +8,29 @@ use Illuminate\View\Component;
 
 class Textarea extends Component
 {
-    public $label;
-
-    public $name;
-
-    public $value;
-
-    public $errors;
-
-    public function __construct($name, $label = null, $value = null, $errors = null)
+    /**
+     * Create a new component instance.
+     *
+     * @param string $name
+     * @param string|null $label
+     * @param string|null $value
+     * @param string|null $errors
+     */
+    public function __construct(public $name, public $label = null, public $value = null, public $errors = null)
     {
+        // Initialize component data properties
         $this->label = $label ?? ucwords(str_replace('_', ' ', $name));
-        $this->name = $name;
         $this->value = old($name, $value);
-        $this->errors = $errors;
     }
 
     /**
      * Get the view / contents that represent the component.
+     *
+     * @return View|Closure|string
      */
     public function render(): View|Closure|string
     {
+        // Return the view file associated with this component
         return view('components.form.textarea');
     }
 }

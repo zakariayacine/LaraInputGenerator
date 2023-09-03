@@ -22,7 +22,7 @@ class LaraInputGeneratorServiceProvider extends PackageServiceProvider
         $this->publishes([
             __DIR__.'/../src/View/Components' => base_path('app/View/Components'),
             __DIR__.'/../resources/views/components' => resource_path('views/components'),
-            __DIR__.'/../config/' => config_path('larainputgenerator'),
+            __DIR__.'/../config/' => config_path('./'),
         ], 'larainputgenerator-config');
     }
 }

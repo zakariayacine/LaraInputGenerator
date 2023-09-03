@@ -8,27 +8,28 @@ use Illuminate\View\Component;
 
 class FileUpload extends Component
 {
-    public $name;
-
-    public $label;
-
-    public $accept;
-
-    public $multiple;
-
-    public function __construct($name, $label = null, $accept = null, $multiple = false)
+    /**
+     * Create a new component instance.
+     *
+     * @param string $name
+     * @param string|null $label
+     * @param string|null $accept
+     * @param bool $multiple
+     */
+    public function __construct(public $name, public $label = null, public $accept = null, public $multiple = false)
     {
-        $this->name = $name;
+        // Initialize component data properties
         $this->label = $label ?? ucwords(str_replace('_', ' ', $name));
-        $this->accept = $accept;
-        $this->multiple = $multiple;
     }
 
     /**
      * Get the view / contents that represent the component.
+     *
+     * @return View|Closure|string
      */
     public function render(): View|Closure|string
     {
+        // Return the view file associated with this component
         return view('components.form.file-upload');
     }
 }

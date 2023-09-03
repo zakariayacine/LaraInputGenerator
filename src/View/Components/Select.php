@@ -8,36 +8,31 @@ use Illuminate\View\Component;
 
 class Select extends Component
 {
-    public $name;
-
-    public $label;
-
-    public $required;
-
-    public $options;
-
-    public $withSearch;
-
-    public $value;
-
-    public $errors;
-
-    public function __construct($name, $required = false, $label = null, $options = [], $withSearch = false, $value = null, $errors = null)
+    /**
+     * Create a new component instance.
+     *
+     * @param string $name
+     * @param bool $required
+     * @param string|null $label
+     * @param array $options
+     * @param string|null $value
+     * @param string|null $errors
+     */
+    public function __construct(public $name, public $required = false, public $label = null, public $options = [], public $value = null, public $errors = null)
     {
-        $this->name = $name;
-        $this->required = $required;
+        // Initialize component data properties
         $this->label = $label ?? ucwords(str_replace('_', ' ', $name));
-        $this->options = $options;
-        $this->withSearch = $withSearch;
         $this->value = old($name, $value);
-        $this->errors = $errors;
     }
 
     /**
      * Get the view / contents that represent the component.
+     *
+     * @return View|Closure|string
      */
     public function render(): View|Closure|string
     {
+        // Return the view file associated with this component
         return view('components.form.select');
     }
 }
