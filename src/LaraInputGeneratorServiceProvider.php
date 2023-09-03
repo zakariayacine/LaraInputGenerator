@@ -5,7 +5,6 @@ namespace Zakariayacine\LaraInputGenerator;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-
 class LaraInputGeneratorServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
@@ -17,8 +16,8 @@ class LaraInputGeneratorServiceProvider extends PackageServiceProvider
          */
         $package->name('larainputgenerator');
     }
-   
-    public function boot() 
+
+    public function boot()
     {
       $this->publishes([
         __DIR__.'/../src/View/Components' => base_path('app/View/Components'),

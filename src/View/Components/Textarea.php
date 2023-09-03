@@ -9,11 +9,14 @@ use Illuminate\View\Component;
 class Textarea extends Component
 {
     public $label;
+
     public $name;
+
     public $value;
+
     public $errors;
 
-    public function __construct($name, $label = null,  $value = null, $errors = null)
+    public function __construct($name, $label = null, $value = null, $errors = null)
     {
         $this->label = $label ?? ucwords(str_replace('_', ' ', $name));
         $this->name = $name;
