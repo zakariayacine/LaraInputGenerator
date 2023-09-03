@@ -10,15 +10,15 @@ LaraInputGenerator is a Laravel package designed to simplify input automation ta
 
 You can install LaraInputGenerator via Composer. Open your terminal and navigate to your Laravel project directory, then run:
 
-'''bash
+```bash
 composer require zakariayacine/larainputgenerator
-'''
+```
 
 To publish the package's assets, including Blade components, run the following command:
 
-'''bash
+```bash
 php artisan vendor:publish --provider="Zakariayacine\LaraInputGenerator\LaraInputGeneratorServiceProvider"
-'''
+```
 
 This command will make the package's components available for use in your views.
 
@@ -26,7 +26,7 @@ This command will make the package's components available for use in your views.
 
 ### Input
 
-'''blade
+```blade
 <x-InputField
     label="informations of the input"
     type="text"
@@ -34,7 +34,7 @@ This command will make the package's components available for use in your views.
     :value="$var"
     :errors="$errors"
 />
-'''
+```
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -46,14 +46,14 @@ This command will make the package's components available for use in your views.
 
 ### Textarea
 
-'''blade
+```blade
 <x-textarea
     name="description"
     label="Description"
     :value="$description"
     :errors="$errors"
 />
-'''
+```
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -64,7 +64,7 @@ This command will make the package's components available for use in your views.
 
 ### Select
 
-'''blade
+```blade
 <x-select
     name="test"
     label="select test"
@@ -72,7 +72,7 @@ This command will make the package's components available for use in your views.
     :value="$selectedValue"
     :errors="$errors"
 />
-'''
+```
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -84,14 +84,14 @@ This command will make the package's components available for use in your views.
 
 ### fileUpload
 
-'''blade
+```blade
 <x-fileUpload
     name="tests"
     label="selects test"
     :accept="config('larainputgenerator.upload**see example**')"
     :multiple=true
 />
-'''
+```
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
