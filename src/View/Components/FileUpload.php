@@ -9,8 +9,11 @@ use Illuminate\View\Component;
 class FileUpload extends Component
 {
     public $name;
+
     public $label;
+
     public $accept;
+
     public $multiple;
 
     public function __construct($name, $label = null, $accept = null, $multiple = false)
