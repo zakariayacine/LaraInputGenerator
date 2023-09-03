@@ -1,84 +1,107 @@
-# LaraInputGenerator is a powerful and versatile Laravel package designed to streamline input automation tasks within your Laravel applications. Say goodbye to repetitive and time-consuming form and input generation code. With LaraInputGenerator, you can effortlessly create input forms, validation rules, and more with just a few lines of code, saving you valuable development time and ensuring consistency throughout your projects.
+# LaraInputGenerator
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/zakariayacine/larainputgenerator.svg?style=flat-square)](https://packagist.org/packages/zakariayacine/larainputgenerator)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/zakariayacine/larainputgenerator/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/zakariayacine/larainputgenerator/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/zakariayacine/larainputgenerator/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/zakariayacine/larainputgenerator/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/zakariayacine/larainputgenerator.svg?style=flat-square)](https://packagist.org/packages/zakariayacine/larainputgenerator)
+LaraInputGenerator is a Laravel package designed to simplify input automation tasks within your Laravel applications. With LaraInputGenerator, you can effortlessly create input forms, textareas, selects, and file uploads with ease.
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/LaraInputGenerator.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/LaraInputGenerator)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zakariayacine/larainputgenerator/blob/main/LICENSE)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/zakariayacine/larainputgenerator)](https://packagist.org/packages/zakariayacine/larainputgenerator)
+[![Total Downloads](https://img.shields.io/packagist/dt/zakariayacine/larainputgenerator)](https://packagist.org/packages/zakariayacine/larainputgenerator)
 
 ## Installation
 
-You can install the package via composer:
+You can install LaraInputGenerator via Composer. Open your terminal and navigate to your Laravel project directory, then run:
 
-```bash
+'''bash
 composer require zakariayacine/larainputgenerator
-```
+'''
 
-You can publish and run the migrations with:
+To publish the package's assets, including Blade components, run the following command:
 
-```bash
-php artisan vendor:publish --tag="larainputgenerator-migrations"
-php artisan migrate
-```
+'''bash
+php artisan vendor:publish --provider="Zakariayacine\LaraInputGenerator\LaraInputGeneratorServiceProvider"
+'''
 
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="larainputgenerator-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="larainputgenerator-views"
-```
+This command will make the package's components available for use in your views.
 
 ## Usage
 
-```php
-$laraInputGenerator = new Zakariayacine\LaraInputGenerator();
-echo $laraInputGenerator->echoPhrase('Hello, Zakariayacine!');
-```
+### Input
 
-## Testing
+'''blade
+<x-InputField
+    label="informations of the input"
+    type="text"
+    name="name of the input"
+    :value="$var"
+    :errors="$errors"
+/>
+'''
 
-```bash
-composer test
-```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `label`   | `string` | **Required**. Label of the input |
+| `type`    | `Parameter` | **Required**. Can be: 'text', 'password', 'email', 'tel', 'number', 'date', 'time', 'datetime-local', 'file', 'checkbox', 'radio' |
+| `name`    | `string` | **Required**. The name of the input |
+| `value`   | `variable` | **NOT Required**. Value can be a string or an integer |
+| `errors`  | `variable` | **Required**. Errors are used in request validation |
 
-## Changelog
+### Textarea
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+'''blade
+<x-textarea
+    name="description"
+    label="Description"
+    :value="$description"
+    :errors="$errors"
+/>
+'''
 
-## Contributing
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `label`   | `string` | **Required**. Label of the textarea |
+| `name`    | `string` | **Required**. The name of the textarea |
+| `value`   | `variable` | **NOT Required**. Value can be a string or an integer |
+| `errors`  | `variable` | **Required**. Errors are used in request validation |
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+### Select
 
-## Security Vulnerabilities
+'''blade
+<x-select
+    name="test"
+    label="select test"
+    :options="$options"
+    :value="$selectedValue"
+    :errors="$errors"
+/>
+'''
 
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `label`   | `string` | **Required**. Label of the select |
+| `name`    | `string` | **Required**. The name of the select |
+| `options` | `array` | **Required**. Example: `['option1' => 'Option 1', 'option2' => 'Option 2']` |
+| `value`   | `variable` | **NOT Required**. Value can be a string or an integer |
+| `errors`  | `variable` | **Required**. Errors are used in request validation |
 
-## Credits
+### fileUpload
 
-- [zakariayacine](https://github.com/zakariayacine)
-- [All Contributors](../../contributors)
+'''blade
+<x-fileUpload
+    name="tests"
+    label="selects test"
+    :accept="config('larainputgenerator.upload**see example**')"
+    :multiple=true
+/>
+'''
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `label`   | `string` | **Required**. Label of the upload file system |
+| `name`    | `string` | **Required**. The name of the upload file system |
+| `accept`  | `variable` | **Required**. Example: `config('larainputgenerator.uploadImages'), config('larainputgenerator.uploadVideos'), config('larainputgenerator.uploadDocuments'), config('larainputgenerator.uploadAudio'), config('larainputgenerator.uploadAll')` |
+| `multiple`| `bool`   | **NOT Required**. Value can be a string or an integer |
+
+For more details and advanced usage examples, please refer to the [official documentation](https://github.com/zakariayacine/larainputgenerator).
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+This package is open-sourced software licensed under the [MIT License](LICENSE).
