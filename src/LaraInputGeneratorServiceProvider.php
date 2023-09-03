@@ -4,7 +4,7 @@ namespace Zakariayacine\LaraInputGenerator;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Zakariayacine\LaraInputGenerator\Commands\LaraInputGeneratorCommand;
+
 
 class LaraInputGeneratorServiceProvider extends PackageServiceProvider
 {
@@ -15,11 +15,14 @@ class LaraInputGeneratorServiceProvider extends PackageServiceProvider
          *
          * More info: https://github.com/spatie/laravel-package-tools
          */
-        $package
-            ->name('larainputgenerator')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_larainputgenerator_table')
-            ->hasCommand(LaraInputGeneratorCommand::class);
+        $package->name('larainputgenerator');
+    }
+   
+    public function boot() 
+    {
+      $this->publishes([
+        __DIR__.'/../src/View/Components' => base_path('app/View/Components'),
+        __DIR__.'/../resources/views/components' => resource_path('views/components'),
+      ]);
     }
 }
