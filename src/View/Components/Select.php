@@ -11,12 +11,12 @@ class Select extends Component
     /**
      * Create a new component instance.
      *
-     * @param string $name
-     * @param bool $required
-     * @param string|null $label
-     * @param array $options
-     * @param string|null $value
-     * @param string|null $errors
+     * @param  string  $name
+     * @param  bool  $required
+     * @param  string|null  $label
+     * @param  array  $options
+     * @param  string|null  $value
+     * @param  string|null  $errors
      */
     public function __construct(public $name, public $required = false, public $label = null, public $options = [], public $value = null, public $errors = null)
     {
@@ -27,8 +27,6 @@ class Select extends Component
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return View|Closure|string
      */
     public function render(): View|Closure|string
     {

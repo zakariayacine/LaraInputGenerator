@@ -11,10 +11,10 @@ class Textarea extends Component
     /**
      * Create a new component instance.
      *
-     * @param string $name
-     * @param string|null $label
-     * @param string|null $value
-     * @param string|null $errors
+     * @param  string  $name
+     * @param  string|null  $label
+     * @param  string|null  $value
+     * @param  string|null  $errors
      */
     public function __construct(public $name, public $label = null, public $value = null, public $errors = null)
     {
@@ -25,8 +25,6 @@ class Textarea extends Component
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return View|Closure|string
      */
     public function render(): View|Closure|string
     {

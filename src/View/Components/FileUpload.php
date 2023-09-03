@@ -11,10 +11,10 @@ class FileUpload extends Component
     /**
      * Create a new component instance.
      *
-     * @param string $name
-     * @param string|null $label
-     * @param string|null $accept
-     * @param bool $multiple
+     * @param  string  $name
+     * @param  string|null  $label
+     * @param  string|null  $accept
+     * @param  bool  $multiple
      */
     public function __construct(public $name, public $label = null, public $accept = null, public $multiple = false)
     {
@@ -24,8 +24,6 @@ class FileUpload extends Component
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return View|Closure|string
      */
     public function render(): View|Closure|string
     {
